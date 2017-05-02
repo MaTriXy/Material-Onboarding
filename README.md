@@ -1,4 +1,4 @@
-#Material-Onboarding [![](https://jitpack.io/v/Vexigon/Material-Onboarding.svg)](https://jitpack.io/#Vexigon/Material-Onboarding)
+# Material-Onboarding [![](https://jitpack.io/v/Vexigon/Material-Onboarding.svg)](https://jitpack.io/#Vexigon/Material-Onboarding)
 
 ![Sample image](https://github.com/Vexigon/Material-Onboarding/raw/master/art/onboarding_sample.png)
 
@@ -8,15 +8,15 @@
 
 A short and simple library which allows easy replication of several app onboarding techniqies found [here](https://material.io/guidelines/growth-communications/onboarding.html).
 
-##Background
+## Background
 
 The Material Design guidelines list a lot of different techniques for onboarding users in your apps. The main concept is to remain as simple as possible, and do away with complicated introductions to your app.
 
-##*What's Included
+## *What's Included
 
 For now, this library only allows the creation of the [TopUserBenefitsModel](https://material.io/guidelines/growth-communications/onboarding.html#onboarding-top-user-benefits) technique. Later on, it will make use of the other techniques as well.
  
-##Enough Talking. How do I use this?
+## Enough Talking. How do I use this?
 
 First off, add the Gradle dependency to your app:
 
@@ -31,9 +31,10 @@ allprojects {
 ```
 
 ```groovy
+// And add this to your module build.gradle file
 dependencies {
     // ...
-    compile 'com.github.Vexigon:Material-Onboarding:v1.0'
+    compile 'com.github.Vexigon:Material-Onboarding:v1.1.1'
 }
 ```
 
@@ -49,34 +50,19 @@ And now, the fun part! Create a new TopUserBenefitsModel instance like this:
 
 ```java
 new TopUserBenefitsModel(this)
-    .setTitleText(new String[]{
-            "Title 1",
-            "Title 2",
-            "Title 3"
-    })
-    .setSubtitles(new String[]{
-            "Subtitle 1",
-            "Subtitle 2",
-            "Subtitle 3"
-    })
-    .setIllustrations(new int[]{
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher,
-            R.mipmap.ic_launcher
-    })
-    .setButtonText(new String[]{
-            "Button 1",
-            "Button 2",
-            "Button 3"
-    })
+    .setupSlides(
+            new Page("Title 1", "Subtitle 1", R.mipmap.ic_launcher),
+            new Page("Title 2", "Subtitle 2", R.mipmap.ic_launcher),
+            new Page("Title 3", "Subtitle 3", "Custom Button Text", R.mipmap.ic_launcher)
+    )
     .launch();
 ```
 
-##Code Overview
+## Code Overview
 
 Below, you'll find info for each of the methods for setting up your onboarding activity.
 
-###new TopUserBenefitsModel(Activity activity)
+### new TopUserBenefitsModel(Activity activity)
 
 The constructor takes an activity as its parameter. 
 
@@ -93,70 +79,40 @@ public void onClick(View v) {
 }
 ```
 
-###setTitleText()
+### setupSlides()
 
 This method takes a String array of titles for each slide. The items in the array correspond to the title on each slide. (Array position 0 sets the title of the first slide, and so on.)
 
 ```java
 // Sample
 new TopUserBenefitsModel(Activity activity)
-    .setTitleText(new String[]{
-        "Title 1",
-        "Title 2",
-        "Title 3"
-    });
+    .setupSlides(
+            new Page("Title 1", "Subtitle 1", R.mipmap.ic_launcher),
+            new Page("Title 2", "Subtitle 2", R.mipmap.ic_launcher),
+            new Page("Title 3", "Subtitle 3", "Custom Button Text", R.mipmap.ic_launcher)
+    );
 ```
 
-###setSubtitles()
-
-Similar to `setTitletext()`, this method sets the subtitles for the onboarding activity.
+#### Page object
+The SSPage object takes 4 parameters total. See below:
 
 ```java
-new TopUserBenefitsModel(Activity activity)
-    .setSubtitles(new String[]{
-        "Subtitle 1",
-        "Subtitle 2",
-        "Subtitle 3"
-    });
+// 3 required
+new Page(String pageTitle, String pageSubtitle, int drawableResource);
+
+// 1 optional
+new Page(String pageTitle, String pageSubtitle, String buttonText, int drawableResource);
 ```
 
-###setIllustrations()
-
-This method takes and array of integer resource values for each slide.
-
-```java
-new TopUserBenefitsModel(this)
-    .setIllustrations(new int[]{
-            R.drawable.drawable1,
-            R.drawable.drawable2,
-            R.drawable.drawable3
-    });
-```
-
-###setButtonText()
-
-This method takes an array of Strings and sets the button text for each slide.
-
-<b>WARNING: overriding these fields technically violates the Material Design Guidelines, as they state that this technique should have a button that explicitly says "Get Started". Use at your own discretion. Defaults to "Get Started" if method not called.</b>
-
-```java
-new TopUserBenefitsModel(this)
-    .setButtonText(new String[]{
-       "Get Started",
-       "Get Started",
-       "Get Started"
-   });
-```
-
-###launch()
+### launch()
 
 This method launches the activity. No parameters are required.
 
-##Sample App
+## Sample App
 
-Review the sample app code [here](https://github.com/Andrew-Quebe/Material-Onboarding/tree/master/sample), and download the APK [here](https://github.com/Andrew-Quebe/Material-Onboarding/blob/master/apks/samplev1.apk?raw=true).
+Review the sample app code [here](https://github.com/Andrew-Quebe/Material-Onboarding/tree/master/sample), and download the APK [here](https://github.com/Vexigon/Material-Onboarding/tree/master/apks).
 
-##Thanks
+## Thanks
 
 This library makes use of some other libraries made by some awesome developers around the Github community.
 
@@ -165,11 +121,11 @@ This library makes use of some other libraries made by some awesome developers a
 
 Thank you!
 
-##License
+## License
 
 See [LICENSE.md](https://github.com/Vexigon/Material-Onboarding/blob/master/LICENSE.md)
 
-##Developed By
+## Developed By
 
 Andrew Quebe
 

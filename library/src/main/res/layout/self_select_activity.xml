@@ -14,27 +14,25 @@
   ~ limitations under the License.
   -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center|top"
-    android:orientation="vertical"
-    android:padding="16dp"
-    tools:context="com.vexigon.libraries.onboarding.sample.MainActivity">
+    android:fitsSystemWindows="true">
 
-    <Button
-        android:id="@+id/demo"
-        android:layout_width="wrap_content"
+    <android.support.v4.view.ViewPager
+        android:id="@+id/selfSelectPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" />
+
+    <com.pixelcan.inkpageindicator.InkPageIndicator
+        android:id="@+id/indicator"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="@string/demo" />
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="24dp"
+        app:currentPageIndicatorColor="#666"
+        app:pageIndicatorColor="#aaa" />
 
-    <Button
-        android:id="@+id/demo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="onClick"
-        android:text="@string/demo" />
-
-</LinearLayout>
+</FrameLayout>

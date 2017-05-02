@@ -31,14 +31,14 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.vexigon.libraries.onboarding.R;
-import com.vexigon.libraries.onboarding.ui.interfaces.FragmentInterface;
-import com.vexigon.libraries.onboarding.util.Keys;
+import com.vexigon.libraries.onboarding.ui.interfaces.BenefitsFragmentInterface;
+import com.vexigon.libraries.onboarding.util.BenefitsKeys;
 
 /**
  * Created by Andrew Quebe on 3/2/2017.
  */
 
-public class BenefitsFragment extends Fragment implements FragmentInterface {
+public class BenefitsFragment extends Fragment implements BenefitsFragmentInterface {
 
     LinearLayout layout;
     ImageView illustration;
@@ -86,7 +86,7 @@ public class BenefitsFragment extends Fragment implements FragmentInterface {
             @Override
             public void onClick(View v) {
                 /*
-                 * Display a “Get Started” button throughout the animation, and loop through the animation continuously until the “Get Started” action is tapped.
+                 * Display a 'Get Started' button throughout the animation, and loop through the animation continuously until the 'Get Started' action is tapped.
                  * https://material.io/guidelines/growth-communications/onboarding.html#onboarding-top-user-benefits
                  */
                 getActivity().finish();
@@ -98,32 +98,32 @@ public class BenefitsFragment extends Fragment implements FragmentInterface {
 
     @Override
     public String getTitleText(int position) {
-        return getActivity().getIntent().getStringArrayExtra(Keys.TITLE_TEXT)[position];
+        return getActivity().getIntent().getStringArrayExtra(BenefitsKeys.TITLE_TEXT)[position];
     }
 
     @Override
     public String getSubtitleText(int position) {
-        return getActivity().getIntent().getStringArrayExtra(Keys.SUBTITLE_TEXT)[position];
+        return getActivity().getIntent().getStringArrayExtra(BenefitsKeys.SUBTITLE_TEXT)[position];
     }
 
     @Override
     public String getButtonText(int position) {
-        if (getActivity().getIntent().getStringArrayExtra(Keys.BUTTON_TEXT) == null)
+        if (getActivity().getIntent().getStringArrayExtra(BenefitsKeys.BUTTON_TEXT) == null)
             return getResources().getString(R.string.get_started);
         else
-            return getActivity().getIntent().getStringArrayExtra(Keys.BUTTON_TEXT)[position];
+            return getActivity().getIntent().getStringArrayExtra(BenefitsKeys.BUTTON_TEXT)[position];
     }
 
     @Override
     public int getIllustrationResource(int position) {
-        return getActivity().getIntent().getIntArrayExtra(Keys.ILLUSTRATION_RES)[position];
+        return getActivity().getIntent().getIntArrayExtra(BenefitsKeys.ILLUSTRATION_RES)[position];
     }
 
     @Override
     public String getBackgroundColor(int position) {
-        if (getActivity().getIntent().getStringArrayExtra(Keys.BACKGROUND_COLOR_RES) == null)
+        if (getActivity().getIntent().getStringArrayExtra(BenefitsKeys.BACKGROUND_COLOR_RES) == null)
             return getString(R.string.white);
         else
-            return getActivity().getIntent().getStringArrayExtra(Keys.BACKGROUND_COLOR_RES)[position];
+            return getActivity().getIntent().getStringArrayExtra(BenefitsKeys.BACKGROUND_COLOR_RES)[position];
     }
 }

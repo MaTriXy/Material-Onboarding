@@ -15,16 +15,12 @@ package com.vexigon.libraries.onboarding.util;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-/**
- * Created by Andrew Quebe on 3/2/2017.
- */
-
-
-public class Keys {
-    public static final String TITLE_TEXT = "titleText";
-    public static final String SUBTITLE_TEXT = "subtitleText";
-    public static final String BUTTON_TEXT = "buttonText";
-    public static final String ILLUSTRATION_RES = "illustrationRes";
-    public static final String BACKGROUND_COLOR_RES = "backgroundColorRes";
+public class SelfSelectKeys {
+    public static final String USER_PAGE_DRAWABALE_RES = "userPageDrawableRes";
+    public static final String USER_PAGE_USERS = "userPageUsers";
+    public static final String SELF_SELECT_PAGE_TITLE = "selfSelectPageTitle";
+    public static final String SELF_SELECT_PAGE_SUBTITLE = "selfSelectPageSubtitle";
+    public static final String SELF_SELECT_BUNDLED_ITEMS = "selfSelectPageBundledListItems";
+    public static final String SELF_SELECT_GRIDVIEW_ITEMS = "selfSelectGridviewItems";
+    public static final String SELF_SELECT_LIST_ITEMS = "selfSelectListItems";
 }

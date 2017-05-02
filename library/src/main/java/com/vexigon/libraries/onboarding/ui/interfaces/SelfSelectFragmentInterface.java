@@ -16,18 +16,29 @@ package com.vexigon.libraries.onboarding.ui.interfaces;
  * limitations under the License.
  */
 
+import com.vexigon.libraries.onboarding.obj.selfselect.BundledListItem;
+import com.vexigon.libraries.onboarding.obj.selfselect.GridViewItem;
+import com.vexigon.libraries.onboarding.obj.selfselect.ListItem;
+import com.vexigon.libraries.onboarding.obj.selfselect.User;
+
+import java.util.ArrayList;
+
 /**
  * Created by Andrew Quebe on 3/2/2017.
  */
 
-public interface FragmentInterface {
-    String getTitleText(int position);
+public interface SelfSelectFragmentInterface {
+    int getUserPageImage(int position);
 
-    String getSubtitleText(int position);
+    ArrayList<User> getLoggedInUsers();
 
-    String getButtonText(int position);
+    String getSelfSelectTitle(int position);
 
-    int getIllustrationResource(int position);
+    String getSelfSelectSubtitle(int position);
 
-    String getBackgroundColor(int position);
+    ArrayList<BundledListItem> getBundledListItems();
+
+    ArrayList<GridViewItem> getGridviewItems();
+
+    ArrayList<ListItem> getListItems();
 }
